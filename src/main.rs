@@ -5,7 +5,7 @@ use std::fs::File;
 use days::day_fns;
 use clap::{App, Arg};
 
-const MAX_DAYS: usize = 3;
+const MAX_DAYS: usize = 5;
 
 fn main() -> Result<(), Box<dyn Error>> {
      let matches = App::new("Advent of Code 2019")
