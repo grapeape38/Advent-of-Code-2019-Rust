@@ -1,4 +1,4 @@
 #!/bin/bash
-cargo b --release
-cp target/release/AdventOfCode2019 .
+cargo b
+cp target/debug/AdventOfCode2019 .
 
