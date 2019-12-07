@@ -29,18 +29,20 @@ fn main() -> Result<(), Box<dyn Error>> {
         .arg(Arg::with_name("test").short("t").takes_value(true))
         .get_matches();
    
-    if let Some(day_num) = matches.value_of("run") {
-        let day_num = str::parse::<usize>(day_num)?; 
-        println!("Running day {:?}", day_num);
-        run(&format!("input/day{}.in", day_num), day_num)?;
-    }
-    if let Some(day_num) = matches.value_of("test") {
-        let day_num = str::parse::<usize>(day_num)?; 
-        println!("Testing day {:?}", day_num);
-        run(&format!("test/day{}.in", day_num), day_num)?;
-    }
     if matches.is_present("run") || matches.is_present("test") {
+        if let Some(day_num) = matches.value_of("run") {
+            let day_num = str::parse::<usize>(day_num)?; 
+            println!("Running day {:?}", day_num);
+            run(&format!("input/day{}.in", day_num), day_num)?;
+        }
+        if let Some(day_num) = matches.value_of("test") {
+            let day_num = str::parse::<usize>(day_num)?; 
+            println!("Testing day {:?}", day_num);
+            run(&format!("test/day{}.in", day_num), day_num)?;
+        }
         Ok(())
     }
-    else { Err("Pass a day with -r or -t to run/test".into()) }
+    else { 
+        Err("Pass a day with -r or -t to run/test".into()) 
+    }
 }
