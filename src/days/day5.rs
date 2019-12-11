@@ -19,7 +19,7 @@ pub fn day5(file: &mut File) -> Result<i32, Box<dyn Error>> {
         if op == 99 { break; }
         let opcode = op % 100;
         let modes = vec![op % 1000 - opcode > 0, op % 10000 - op % 1000 > 0, op % 100000 - op % 10000 > 0];
-        println!("{:?} {:?} {:?}", op, opcode, modes);
+        println!("{:?} {:?} {:?} {:?}", pos, op, opcode, modes);
         let get_val = |param: bool, pos: usize| {
             if param { v[pos] } else { v[v[pos] as usize] }
         };
